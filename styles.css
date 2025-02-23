@@ -5,13 +5,6 @@
     box-sizing: border-box;
 }
 
-/* Body */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-}
-
 /* Header */
 header {
     background-color: #070e27;
@@ -28,7 +21,6 @@ header .container {
 header svg {
     width: 40px;
     height: 40px;
-    /* margin-bottom: 10px; */
     fill: #fefefe;
 }
 
@@ -41,55 +33,12 @@ header p {
     font-size: 1.2rem;
 }
 
-/* tasto per download report */
-button {
-    background-color: #2a8d86;
-    color: #fefefe;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-top: 20px;
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
 }
-
-/* .download-btn {
-    position: fixed;
-    bottom: 20px; 
-    right: 20px; 
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 5px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  }
- */
-.download-btn {
-    position: fixed;
-    bottom: 43px; /* Distanza dal bordo superiore */
-    right: 20px; /* Distanza dal bordo destro */
-    background-color: transparent;
-    padding: 10px;
-    border-radius: 5px;
-    /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); */
-    transition: opacity 0.3s ease; /* Transizione per l'effetto di dissolvenza */
-}
-
-.download {
-    fill: none;
-}
-
-.download  path {
-    stroke: #0071bb;
-}
-
-.download-btn:hover {
-    /* background-color: #0056b3; */
-    opacity: 0.7; /* Effetto di trasparenza durante l'hover */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  }
 
 /* Main content sections */
 section {
@@ -97,15 +46,34 @@ section {
     margin: 20px 0;
 }
 
+/* Container class to limit content width */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #3244d7;
+}
+
+section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #6072ba;
+}
+
+#intro h2 {
     font-size: 2rem;
     margin-bottom: 20px;
     color: #070e27;
 }
 
-section p {
+#intro p {
     font-size: 1rem;
-    color: #0070ba;
+    color: #070e27;
 }
 
 ul {
@@ -114,46 +82,77 @@ ul {
 
 ul li {
     margin-bottom: 10px;
+    color: #070e27;
 }
 
 ul li strong {
-    color: #0071bb;
+    color: #6072ba;
 }
 
-/* Timeline */
-#timeline ul {
+/* dottedIcon, elenco di elementi di tipo immagine-testo*/
+#dottedIcon ul {
     list-style-type: none;
     padding-left: 20px;
 }
 
-#timeline li {
+#dottedIcon li {
+    display: flex;
+    align-items: center;
     margin-bottom: 20px;
     position: relative;
 }
 
-#timeline .anno {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #2a8d86;
-    position: absolute;
-    left: -120px;
-    top: 0;
-}
-
-#timeline .timeline li .icon img {
-    font-size: 2rem;
-    width: 40px;  /* Imposta la larghezza dell'icona */
-    height: 40px; /* Imposta l'altezza dell'icona */
+#dottedIcon li  svg{
+    font-size: 2rem; /* Imposta la dimensione del testo in relazione al sistema di coordinate dell'svg(attualmente non abbiamo testi nei nostri svg) */
     margin-right: 20px;
-    color: #2a8d86;
 }
 
-/*logo svg*/
-.logo {
-    width: 50px;
-    height: 50px;
+#dottedIcon li .event {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+}
+
+#dottedIcon  li .event .title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #0071bb;
+    display: block;
     margin-bottom: 10px;
-    fill: #0071bb;
+}
+
+#dottedIcon  li .event p {
+    font-size: 1rem;
+    color: #070e27;
+}
+
+/* contiene l'immagine centrata */
+.imgDivCenter
+{
+    display: flex; /*allinea i figli in orizzontale*/
+    justify-content: center;/*allinea i figli al centro su asse orizzontale*/
+    align-items: center;/*allinea i figli al centro su asse verticale*/
+}
+
+/* contiene l'immagine */
+.imgDiv
+{
+    display: flex; /*allinea i figli in orizzontale*/
+    align-items: center;/*allinea i figli al centro su asse verticale*/
+}
+
+img {
+    width: 50%; /*adatta alla larghezza del suo contenitore (di solito un div)*/
+}
+
+.tinyImg35{
+    width: 35%; /*adatta alla larghezza del suo contenitore (di solito un div)*/
+}
+
+.tinyImg{
+    width: 25%; /*adatta alla larghezza del suo contenitore (di solito un div)*/
 }
 
 /* svg generico */
@@ -162,6 +161,28 @@ svg {
     height: 50px;
     margin-bottom: 10px;
     fill: #0071bb;
+}
+
+.download-btn {
+    position: fixed;
+    bottom: 43px; /* Distanza dal bordo superiore */
+    right: 20px; /* Distanza dal bordo destro */
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 5px;
+    transition: opacity 0.3s ease; /* Transizione per l'effetto di dissolvenza */
+}
+
+.download-btn:hover {
+    opacity: 0.7; /* Effetto di trasparenza durante l'hover */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+.download {
+    fill: none;
+}
+
+.download  path {
+    stroke: #0071bb;
 }
 
 /* Footer */
@@ -174,11 +195,4 @@ footer {
 
 footer p {
     font-size: 1rem;
-}
-
-/* Container class to limit content width */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
 }
